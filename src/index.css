@@ -1,0 +1,493 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  /* Estilos del body - Modo claro con mejor contraste */
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #f6f8fa 0%, #fafbfc 50%, #f6f8fa 100%);
+    color: #24292f;
+    transition: background 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Estilos del body - Modo oscuro GitHub Premium */
+  .dark body {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+    color: #e6edf3;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Prevenir zoom en inputs en iOS */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Mejoras táctiles para móvil */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* Mejorar scroll en móvil */
+  body {
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Inputs más accesibles en móvil */
+  input, textarea, select {
+    font-size: 16px; /* Previene zoom en iOS */
+  }
+
+  /* Mejora de tipografía */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #ffffff;
+  }
+
+  /* Scrollbar personalizada - Modo claro */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f6f8fa;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background-color: #0d1117;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #d0d7de;
+    border-radius: 8px;
+    border: 3px solid #f6f8fa;
+    transition: background-color 0.2s;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background-color: #30363d;
+    border: 3px solid #0d1117;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #6e40c9;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background-color: #6e40c9;
+  }
+
+  /* Selección de texto */
+  ::selection {
+    background-color: rgba(110, 64, 201, 0.3);
+    color: #24292f;
+  }
+
+  .dark ::selection {
+    background-color: rgba(110, 64, 201, 0.5);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  /* Superficie principal - Modo claro */
+  .surface {
+    background-color: #ffffff;
+    transition: background-color 0.3s;
+  }
+
+  .dark .surface {
+    background-color: #161b22;
+  }
+
+  /* Texto primario - Negro en claro, Blanco en oscuro */
+  .text-primary {
+    color: #000000;
+    transition: color 0.2s;
+  }
+
+  .dark .text-primary {
+    color: #ffffff;
+  }
+
+  /* Texto secundario - Gris oscuro en claro, Gris claro en oscuro */
+  .text-secondary {
+    color: #57606a;
+    transition: color 0.2s;
+  }
+
+  .dark .text-secondary {
+    color: #8b949e;
+  }
+
+  /* Hover states */
+  .hover\:text-primary:hover {
+    color: #000000;
+  }
+
+  .dark .hover\:text-primary:hover {
+    color: #ffffff;
+  }
+
+  /* Superficie variante */
+  .surface-variant {
+    background-color: #f6f8fa;
+    transition: background-color 0.3s;
+  }
+
+  .dark .surface-variant {
+    background-color: #0d1117;
+  }
+
+  /* Bordes sutiles */
+  .border-default {
+    border-color: #d0d7de;
+  }
+
+  .dark .border-default {
+    border-color: #30363d;
+  }
+
+  /* Texto primary */
+  .text-primary {
+    color: #24292f;
+  }
+
+  .dark .text-primary {
+    color: #ffffff;
+  }
+
+  /* Texto secondary */
+  .text-secondary {
+    color: #57606a;
+  }
+
+  .dark .text-secondary {
+    color: #8b949e;
+  }
+
+  /* Texto tertiary */
+  .text-tertiary {
+    color: #6e7681;
+  }
+
+  .dark .text-tertiary {
+    color: #6e7681;
+  }
+
+  /* Background light */
+  .bg-light-bg {
+    background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 50%, #f6f8fa 100%);
+  }
+
+  /* Background dark */
+  .bg-dark-bg {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+  }
+
+  /* Sombras */
+  .shadow-card {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  .dark .shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  }
+
+  .shadow-card-hover {
+    box-shadow: 0 4px 6px -1px rgba(110, 64, 201, 0.2), 0 2px 4px -1px rgba(110, 64, 201, 0.1);
+  }
+
+  .dark .shadow-card-hover {
+    box-shadow: 0 10px 15px -3px rgba(110, 64, 201, 0.3), 0 4px 6px -2px rgba(110, 64, 201, 0.2);
+  }
+}
+
+@layer components {
+  /* Superficie principal */
+  .surface {
+    background-color: #FFFFFF;
+    transition: background-color 0.3s;
+  }
+
+  .dark .surface {
+    background-color: #161B22;
+  }
+
+  /* Superficie variante */
+  .surface-variant {
+    background-color: #F6F8FA;
+    transition: background-color 0.3s;
+  }
+
+  .dark .surface-variant {
+    background-color: #0D1117;
+  }
+
+  /* Bordes */
+  .border-default {
+    border-color: #D0D7DE;
+    transition: border-color 0.3s;
+  }
+
+  .dark .border-default {
+    border-color: #30363D;
+  }
+
+  /* Textos */
+  .text-primary {
+    color: #24292F;
+  }
+
+  .dark .text-primary {
+    color: #E6EDF3;
+  }
+
+  .text-secondary {
+    color: #57606A;
+  }
+
+  .dark .text-secondary {
+    color: #8C959F;
+  }
+
+  .text-tertiary {
+    color: #8C959F;
+  }
+
+  .dark .text-tertiary {
+    color: #6E7781;
+  }
+
+  /* Sombras */
+  .shadow-card {
+    box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12), 0 0 0 1px rgba(27, 31, 35, 0.06);
+  }
+
+  .dark .shadow-card {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .shadow-card-hover {
+    box-shadow: 0 4px 12px rgba(27, 31, 35, 0.15), 0 0 0 1px rgba(27, 31, 35, 0.08);
+  }
+
+  .dark .shadow-card-hover {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Ocultar scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Animaciones adicionales para LoadingScreen */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float linear infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 3s linear infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+  }
+
+  /* Ocultar scrollbar pero mantener funcionalidad */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Safe area para notch en móviles */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  /* Prevenir scroll overscroll en móvil */
+  .overscroll-contain {
+    overscroll-behavior: contain;
+  }
+
+  /* Área táctil mínima recomendada (44x44px) */
+  .touch-target {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Estilos personalizados para slider de intensidad */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 12px;
+}
+
+/* Track del slider - WebKit (Chrome, Safari) */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 12px;
+  border-radius: 6px;
+}
+
+/* Track del slider - Firefox */
+input[type="range"]::-moz-range-track {
+  height: 12px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Thumb del slider - WebKit */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #d946ef);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.5), 0 0 0 4px rgba(139, 92, 246, 0.1);
+  transition: all 0.2s ease;
+  margin-top: -6px;
+  border: 3px solid white;
+}
+
+/* Thumb del slider - Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #d946ef);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.5), 0 0 0 4px rgba(139, 92, 246, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* Dark mode thumb */
+.dark input[type="range"]::-webkit-slider-thumb {
+  border-color: #0d1117;
+  box-shadow: 0 2px 12px rgba(139, 92, 246, 0.6), 0 0 0 4px rgba(139, 92, 246, 0.15);
+}
+
+.dark input[type="range"]::-moz-range-thumb {
+  border-color: #0d1117;
+  box-shadow: 0 2px 12px rgba(139, 92, 246, 0.6), 0 0 0 4px rgba(139, 92, 246, 0.15);
+}
+
+/* Hover effect en thumb */
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.7), 0 0 0 6px rgba(139, 92, 246, 0.15);
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.7), 0 0 0 6px rgba(139, 92, 246, 0.15);
+}
+
+/* Active state */
+input[type="range"]:active::-webkit-slider-thumb {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.8), 0 0 0 8px rgba(139, 92, 246, 0.2);
+}
+
+input[type="range"]:active::-moz-range-thumb {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.8), 0 0 0 8px rgba(139, 92, 246, 0.2);
+}
+
+/* Focus state para accesibilidad */
+input[type="range"]:focus-visible {
+  outline: none;
+}
+
+input[type="range"]:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.7), 0 0 0 6px rgba(139, 92, 246, 0.25);
+}
+
+input[type="range"]:focus-visible::-moz-range-thumb {
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.7), 0 0 0 6px rgba(139, 92, 246, 0.25);
+}
